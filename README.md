@@ -25,12 +25,6 @@ $ composer require loadsys/cakephp-libregistry:~1.0
 
 ## Usage
 
-* Add this plugin to your application by adding this line to your bootstrap.php
-
-	````php
-	CakePlugin::load('LibRegistry');
-	````
-
 * Invoke the LibRegistry statically:
 
 	```php
