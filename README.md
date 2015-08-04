@@ -3,7 +3,7 @@
 [![Packagist Version](https://img.shields.io/packagist/v/loadsys/CakePHP-LibRegistry.svg?style=flat-square)](https://packagist.org/packages/loadsys/cakephp-libregistry)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/loadsys/CakePHP-LibRegistry/master.svg?style=flat-square)](https://travis-ci.org/loadsys/CakePHP-LibRegistry)
-[![Coverage Status](https://img.shields.io/coveralls/loadsys/CakePHP-LibRegistry/master.svg)](https://coveralls.io/r/loadsys/cakephp-libregistry)
+[![Coverage Status](https://img.shields.io/coveralls/loadsys/CakePHP-LibRegistry/master.svg?style=flat-square)](https://coveralls.io/r/loadsys/cakephp-libregistry)
 [![Total Downloads](https://img.shields.io/packagist/dt/loadsys/cakephp-libregistry.svg?style=flat-square)](https://packagist.org/packages/loadsys/cakephp-libregistry)
 
 The LibRegistry provides a mechanism for loading and storing instances of non-Cake PHP libraries. It works a lot like Cake 3's `TableRegistry`. Object instances can be requested by name and instantiated automatically, or can be loaded into the registry manually.
