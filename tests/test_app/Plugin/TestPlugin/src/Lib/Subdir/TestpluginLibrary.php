@@ -21,5 +21,5 @@
  */
 namespace TestPlugin\Lib\Subdir;
 
-class TestPluginLibrary {
+class TestpluginLibrary {
 }

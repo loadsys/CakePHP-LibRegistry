@@ -95,9 +95,9 @@ class LibRegistryTraitTest extends TestCase {
 			],
 
 			[
-				'TestPlugin.Subdir/TestPluginLibrary',
-				'TestPluginLibrary',
-				'TestPlugin\Lib\Subdir\TestPluginLibrary',
+				'TestPlugin.Subdir/TestpluginLibrary',
+				'TestpluginLibrary',
+				'TestPlugin\Lib\Subdir\TestpluginLibrary',
 			],
 		];
 	}
