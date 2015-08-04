@@ -74,6 +74,12 @@ $ composer require loadsys/cakephp-libregistry:~1.0
 
 	```
 
+### Library classes
+
+* Must exist in `src/Lib/` in your Cake app or plugin and must be namespaced appropriately.
+
+* Must accept a single array of config values as the sole `__construct()` argument. Libraries that don't conform to this interface can't be instantiated via `LibRegistry::get()`, although they can still be stored in the Registry manually via `::set()`.
+
 
 ## Contributing
 
