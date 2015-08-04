@@ -8,9 +8,7 @@ php:
 
 env:
   global:
-    - secure: "{GITHUB_TOKEN}"
-    # Generated using:
-    # `travis encrypt 'GITHUB_TOKEN=your_read_only_public_repos_only_token_here'`
+    - secure: "GYmySW/o36d64WdVMhszksr/HI7EstiF1v6zUv47sXL2dV6UzVAvSZYlhRZ5Xp3jtd6pdQQVn+CIhlNz9UiTjTWKXhuGQ58i358LcWg4dVBHhxaZi//bntnqsiJRaHn96kf7oNQnqeLBWw44PXiAhnXjsacVwiCdbIGxsvX5iVRt4qC1zj0LI0f1dD7SqbN3sl15V9M3QYjCQM42OGS/MzrrSOlqQRHGzskp0ml8C/jYVNiDtLRHZ+S1J2QnP60Y3tc3d9w5ndhYILbYjvaV47azTBllSByjPhCEzZadg6cSkYxmlfQMllo+sxsjdGzLVxsoVQfBG5fx4DqtAzVk2+8ibfGii5lg+JAAenqUAaEa17N4ZxqtJ2I5oIxTKg/fVVKJkTVjPC8FutBbERA75rqrbBWiOlvXCv0IA0KLDc/V2Mfgj0ts7JYFG65Yr9ShebymzWBtLEsXgViZuLU3hWBfge9nnvGkpTsj23tVi4BmXfJ+R7l5Isf9Ot991ssu8MMneLr1QfBETN0KmMZZg9aJkAsn93ktatuKyD+vgYa6RVqJJb35Qyo3Uu+Tb9AyrhWmcTNvUhFlSngZonzUhKmCI7FJfS+fC/ny0ODn7E4ZFu4PbHmA/FZOHbtNqhLETgJ7UKDJB3vJ5sm7vDdm4Jhi4WcaZk4DCmY2qjEKmUw="
 
 cache:
   directories:
