@@ -1,0 +1,43 @@
+sudo: false
+
+language: php
+
+php:
+  - 5.5
+  - 5.6
+
+env:
+  global:
+    - secure: "{GITHUB_TOKEN}"
+    # Generated using:
+    # `travis encrypt 'GITHUB_TOKEN=your_read_only_public_repos_only_token_here'`
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+branches:
+  except:
+    - gh-pages
+
+before_install:
+  - composer self-update
+  - mkdir -p build/logs
+
+install:
+  - composer config -g github-oauth.github.com $GITHUB_TOKEN
+  - composer install --no-interaction
+
+before_script:
+  - phpenv rehash
+  - vendor/bin/phpcs --config-set installed_paths vendor/cakephp/cakephp-codesniffer,vendor/loadsys/loadsys_codesniffer
+
+script:
+  - vendor/bin/phpcs -np --extensions=php --standard=Loadsys ./src ./tests
+  - vendor/bin/phpunit --coverage-clover=build/logs/clover.xml
+
+after_success:
+  - php vendor/bin/coveralls -v
+
+notifications:
+  email: false
