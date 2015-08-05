@@ -54,7 +54,7 @@ $ composer require loadsys/cakephp-libregistry:~1.0
 	use LibRegistry\LibRegistryTrait;
 
 	class MyController extends Controller {
-		use LibRegsitryTrait;
+		use LibRegistryTrait;
 		public function index() {
 			$this->loadLib('MyObj', ['configs' => 'here']);
 			$this->MyObj->doSomethingNeat();
