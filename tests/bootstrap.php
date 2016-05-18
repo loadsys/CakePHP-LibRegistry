@@ -40,7 +40,7 @@ Configure::write('App', [
 	'namespace' => 'TestApp',
 	'paths' => [
 		'plugins' => [ROOT . 'Plugin' . DS],
-	]
+	],
 ]);
 
 if (!getenv('db_dsn')) {

@@ -81,7 +81,9 @@ trait LibRegistryTrait {
 	 * @return mixed The instantiated copy of the library class.
 	 */
 	public function loadLib($name, array $config = []) {
+		//@codingStandardsIgnoreStart
 		list($plugin, $class) = pluginSplit($name);
+		//@codingStandardsIgnoreEnd
 		$prop = basename($class);
 
 		$this->{$prop} = $this->libs()->get($name, $config);
