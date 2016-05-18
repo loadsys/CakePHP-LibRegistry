@@ -1,4 +1,4 @@
-# CakePHP-LibRegistry
+# CakePHP LibRegistry Plugin
 
 [![Packagist Version](https://img.shields.io/packagist/v/loadsys/CakePHP-LibRegistry.svg?style=flat-square)](https://packagist.org/packages/loadsys/cakephp-libregistry)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
@@ -101,4 +101,4 @@ $ vendor/bin/phpcs -p --standard=vendor/loadsys/loadsys_codesniffer/Loadsys src
 
 ## Copyright
 
-[Loadsys Web Strategies](http://www.loadsys.com) 2015
+[Loadsys Web Strategies](http://www.loadsys.com) 2016
