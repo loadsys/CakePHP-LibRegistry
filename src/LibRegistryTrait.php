@@ -5,16 +5,16 @@
  * class to make it convenient to use in an instanced context. To use:
  *
  * ```
- *  use App\Lib\LibRegistryTrait;
+ *  use LibRegistry\LibRegistryTrait;
  *
  *  class MyController {
- *	use LibRegistryTrait;
+ *	  use LibRegistryTrait;
  *
- *	public function some_action() {
- *	  $this->loadLib('SomeLib', ['config']);
- *	  $this->SomeLib->doSomeLibStuff();
- *	}
- *  }
+ *	  public function some_action() {
+ *	    $this->loadLib('SomeLib', ['config']);
+ *	    $this->SomeLib->doSomeLibStuff();
+ *    }
+ * }
  * ```
  */
 
@@ -28,20 +28,16 @@ use LibRegistry\LibRegistry;
  */
 trait LibRegistryTrait {
 	/**
-	 * Stores a LibRegistry instance used to load non-Cake libraries.
+	 * Stores the global LibRegistry instance used to load non-Cake libraries.
 	 *
-	 * Call via `$this->loadLib('FullLibName')` where "FullLibName"
-	 * is a file from `/src/Lib/Loadsys`. The Lib will be made
-	 * available to the controller at `$this->FullLibName`.
-	 *
-	 * @var App\Lib\LibRegistry
+	 * @var LibRegistry\LibRegistry
 	 */
 	protected $_libs = null;
 
 	/**
-	 * Get the component registry for this controller.
+	 * Get the library registry for the host class.
 	 *
-	 * @return \Cake\Controller\ComponentRegistry
+	 * @return LibRegistry\LibRegistry
 	 */
 	public function libs() {
 		if ($this->_libs === null) {
@@ -52,18 +48,23 @@ trait LibRegistryTrait {
 	}
 
 	/**
-	 * Add a library to the controller's registry.
+	 * Fetch a library from the host object's registry (adding it first if necessary).
 	 *
-	 * This method will also set the library to a property.
-	 * For example:
+	 * Call via `$this->loadLib('Folder/LibName')` where "LibName" is defined
+	 * in the file `/src/Lib/Folder/LibName.php`. The library will be made
+	 * available to the host object at `$this->LibName`. The class name
+	 * defined within must match the file name. Example:
 	 *
 	 * ```
-	 * $this->loadLib('ProcessTransaction');
+	 * $this->loadLib('Payments/ProcessTransaction');
 	 * ```
 	 *
-	 * Will result in a `ProcessTransaction` property being set.
+	 * Will result in a `$this->ProcessTransaction` property being set to an
+	 * instance of the `class ProcessTransaction {...}` loaded from the file
+	 * `src/Lib/Payments/ProcessTransaction.php`
 	 *
-	 * NOTE! This can cause collisions if for example you try to load the same library name from your app and a plugin.
+	 * NOTE! This can cause collisions if you try to load the same library name
+	 * from your app and a plugin. For example:
 	 *
 	 * ```
 	 * $this->loadLib('SameLib');
@@ -71,9 +72,13 @@ trait LibRegistryTrait {
 	 * // $this->SameLib is the plugin's version now!
 	 * ```
 	 *
-	 * @param string $name The name of the library to load from `src/Lib/Loadsys/`.
+	 * In order for a class to be compatible with LibRegistry, its constructor
+	 * must take a single array argument. Attempting to load classes that do
+	 * not conform to this pattern will result in a runtime error.
+	 *
+	 * @param string $name The name of the library to load from `src/Lib/`.
 	 * @param array $config The config for the library.
-	 * @return mixed
+	 * @return mixed The instantiated copy of the library class.
 	 */
 	public function loadLib($name, array $config = []) {
 		list($plugin, $class) = pluginSplit($name);

@@ -5,3 +5,6 @@
 # Cake
 /tmp
 /logs
+
+# OS
+.DS_Store
