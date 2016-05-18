@@ -19,7 +19,6 @@ branches:
     - gh-pages
 
 before_install:
-  - composer self-update
   - mkdir -p build/logs
 
 install:
