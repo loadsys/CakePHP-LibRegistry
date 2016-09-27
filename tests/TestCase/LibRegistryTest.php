@@ -289,11 +289,11 @@ class LibRegistryTest extends TestCase {
 	 * @return void
 	 */
 	public function testCannotUnserialize() {
-		$this->setExpectedExceptionRegExp(
-			'Exception',
-			'/Cannot unserialize singleton class .*LibRegistry.*\./'
+		$reflection = new \ReflectionClass('\LibRegistry\LibRegistry');
+		$constructor = $reflection->getmethod('__wakeup');
+		$this->assertFalse(
+			$constructor->isPublic(),
+			'Not allowed to unserialize the singleton.'
 		);
-		$myRegistry = LibRegistry::getInstance();
-		$myRegistry->__wakeup();
 	}
 }
