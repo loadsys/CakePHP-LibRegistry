@@ -68,6 +68,7 @@ class LibRegistry {
 	 */
 	public static function set($class, $object) {
 		static::$_instances[$class] = $object;
+
 		return static::$_instances[$class];
 	}
 
