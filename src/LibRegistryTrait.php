@@ -32,7 +32,9 @@ trait LibRegistryTrait {
 	 *
 	 * @var LibRegistry\LibRegistry
 	 */
+	// @codingStandardsIgnoreStart
 	protected $_libs = null;
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Get the library registry for the host class.
