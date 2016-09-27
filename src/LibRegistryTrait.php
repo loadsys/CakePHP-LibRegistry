@@ -87,6 +87,7 @@ trait LibRegistryTrait {
 		$prop = basename($class);
 
 		$this->{$prop} = $this->libs()->get($name, $config);
+
 		return $this->{$prop};
 	}
 }

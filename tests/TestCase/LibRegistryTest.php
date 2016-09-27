@@ -7,6 +7,7 @@ namespace LibRegistry\Test\TestCase;
 use Cake\Core\Configure;
 use Cake\TestSuite\TestCase;
 use LibRegistry\LibRegistry;
+use ReflectionClass;
 
 /**
  * Subclass that
@@ -261,7 +262,7 @@ class LibRegistryTest extends TestCase {
 	 * @return void
 	 */
 	public function testCannotInstantiateExternally() {
-		$reflection = new \ReflectionClass('\LibRegistry\LibRegistry');
+		$reflection = new ReflectionClass('\LibRegistry\LibRegistry');
 		$constructor = $reflection->getConstructor();
 		$this->assertFalse(
 			$constructor->isPublic(),
@@ -275,7 +276,7 @@ class LibRegistryTest extends TestCase {
 	 * @return void
 	 */
 	public function testCannotClone() {
-		$reflection = new \ReflectionClass('\LibRegistry\LibRegistry');
+		$reflection = new ReflectionClass('\LibRegistry\LibRegistry');
 		$constructor = $reflection->getmethod('__clone');
 		$this->assertFalse(
 			$constructor->isPublic(),
@@ -289,11 +290,11 @@ class LibRegistryTest extends TestCase {
 	 * @return void
 	 */
 	public function testCannotUnserialize() {
-		$this->setExpectedExceptionRegExp(
-			'Exception',
-			'/Cannot unserialize singleton class .*LibRegistry.*\./'
+		$reflection = new ReflectionClass('\LibRegistry\LibRegistry');
+		$constructor = $reflection->getmethod('__wakeup');
+		$this->assertFalse(
+			$constructor->isPublic(),
+			'Not allowed to unserialize the singleton.'
 		);
-		$myRegistry = LibRegistry::getInstance();
-		$myRegistry->__wakeup();
 	}
 }

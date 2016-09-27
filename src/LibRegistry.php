@@ -68,6 +68,7 @@ class LibRegistry {
 	 */
 	public static function set($class, $object) {
 		static::$_instances[$class] = $object;
+
 		return static::$_instances[$class];
 	}
 
@@ -139,11 +140,9 @@ class LibRegistry {
 	 * Must use LibRegistry::getInstance() instead.
 	 *
 	 * @return void
-	 * @throws Exception every time.
+	 * @codeCoverageIgnore Nothing to test.
 	 */
-	public function __wakeup() {
-		throw new Exception(
-			sprintf('Cannot unserialize singleton class %s.', get_called_class())
-		);
+	private function __wakeup() {
+		//no-op
 	}
 }
