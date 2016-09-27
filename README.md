@@ -91,10 +91,11 @@ The full test suite for the plugin can be run via this command:
 $ vendor/bin/phpunit
 ```
 
-Code must conform to the Loadsys coding standard:
+Code must conform to the Loadsys coding standard, which is based on the CakePHP coding standard:
 
 ```shell
-$ vendor/bin/phpcs -p --standard=vendor/loadsys/loadsys_codesniffer/Loadsys src
+$ vendor/bin/phpcs --config-set installed_paths vendor/cakephp/cakephp-codesniffer,vendor/loadsys/loadsys_codesniffer
+$ vendor/bin/phpcs -p --standard=Loadsys src
 ```
 
 
