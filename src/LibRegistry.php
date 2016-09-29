@@ -28,7 +28,9 @@ class LibRegistry {
 	 *
 	 * @var array
 	 */
+	// @codingStandardsIgnoreStart
 	protected static $_instances = [];
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Create an instance of a given classname.
